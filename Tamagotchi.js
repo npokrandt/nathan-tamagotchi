@@ -25,4 +25,8 @@ export default class Tamagotchi {
 
     //doSomething (there will be a list of actions. One might occur every 30 seconds. These might decrease hunger and thirst)
 
+    //feed (give t 25-50 more hunger)
+    //drink (give t 20-35 more hunger)
+    //entertain (try to ecxite t. If it fails, he might get mad...)
+
 }
