@@ -19,12 +19,20 @@ const doAction = () => {
 }
 
 const chooseAction = (willAct) => {
-    const actions = ['doing a little dance', 'playing', 'taking a nap', 'plotting how to take over the world', 'being obnoxious']
+    const actions = tamagotchi.actions
 
     if (willAct){
         const action = actions[Math.floor(Math.random() * actions.length)]
         console.log(`${tamagotchi.name} is ${action}!`)
     }
+}
+
+const getHungry = () => {
+    tamagotchi.getHungry()
+}
+
+const getThirsty = () => {
+    tamagotchi.getThirsty()
 }
 
 const init = () => {
@@ -34,7 +42,7 @@ const init = () => {
             type: 'input',
             name: 'name',
             message: "What would you like to name your tamagotchi?",
-            default: 'Stan'
+            default: 'Sparrow'
         }
     ]).then((answers) => {
         // console.log(answers)
@@ -42,6 +50,8 @@ const init = () => {
         //create t with name
         tamagotchi = new Tamagotchi(answers.name)
         let actionInterval = setInterval(doAction, 10000)
+        let hungerInterval = setInterval(getHungry, 30000)
+        let thirstInterval = setInterval(getThirsty, 30000)
     }).catch((err) => {
         console.log(err)
     })
