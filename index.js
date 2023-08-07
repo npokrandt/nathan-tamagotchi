@@ -8,13 +8,23 @@ let tamagotchi
 const doAction = () => {
     let willAct = false
     const random = Math.floor(Math.random() * 2)
-    if (random === 1){
-        console.log(`${tamagotchi.name} is acting!`)
+    if (random === 1){       
         willAct = true
     }
 
-    console.log(willAct)
+    chooseAction(willAct)
+
+    //console.log(willAct)
     // return willAct
+}
+
+const chooseAction = (willAct) => {
+    const actions = ['doing a little dance', 'playing', 'taking a nap', 'plotting how to take over the world', 'being obnoxious']
+
+    if (willAct){
+        const action = actions[Math.floor(Math.random() * actions.length)]
+        console.log(`${tamagotchi.name} is ${action}!`)
+    }
 }
 
 const init = () => {
